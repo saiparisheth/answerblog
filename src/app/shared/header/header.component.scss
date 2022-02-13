@@ -1,8 +1,10 @@
 header {
   height: 30px;
   margin: auto 80px;
+  max-width: 1200px;
+  margin: auto;
 
-  @media (max-width: 700px) {
+  @media (max-width: 880px) {
     margin: auto 30px;
   }
 
@@ -18,7 +20,7 @@ header {
   .logo {
     h1 {
       font-size: 2rem;
-      font-weight: 600;
+      font-weight: 500;
     }
   }
 }
