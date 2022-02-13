@@ -1,12 +1,36 @@
 <section>
-  <div class="hero-section">
-    <div class="flex flex-column-reverse md:flex-row justify-content-around">
-      <div class="title">
-        <h1>Looking Answers for your NPTEL Course?</h1>
-      </div>
-      <div class="img">
-        <img src="assets/streamline-icon-online-exams-1@400x400.png" alt="" />
+  <div class="section">
+    <div class="hero-section">
+      <div class="flex flex-column-reverse md:flex-row justify-content-around">
+        <div class="title">
+          <h1>Looking Answers for your NPTEL Course?</h1>
+        </div>
+        <div class="img">
+          <img src="assets/streamline-icon-online-exams-1@400x400.png" alt="" />
+        </div>
       </div>
     </div>
+  </div>
+  <div class="input-search mt-5 text-center">
+    <form>
+      <div class="input">
+        <span class="p-input-icon-left mt-5">
+          <i class="pi pi-search"></i>
+          <input
+            type="text"
+            class="p-inputtext-lg"
+            placeholder="Search By Course"
+            pInputText
+          />
+        </span>
+      </div>
+      <button mat-raised-button class="mt-3" color="primary">Search</button>
+    </form>
+  </div>
+  <div class="recently-updated">
+    <app-recently-updated></app-recently-updated>
+  </div>
+  <div class="courses">
+    <app-courses></app-courses>
   </div>
 </section>

@@ -8,12 +8,16 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { MaterialModule } from './material.module';
 import { PrimengModule } from './primeng.module';
+import { RecentlyUpdatedComponent } from './home/recently-updated/recently-updated.component';
+import { CoursesComponent } from './home/courses/courses.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    RecentlyUpdatedComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,
