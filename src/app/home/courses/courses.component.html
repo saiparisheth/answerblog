@@ -1,7 +1,15 @@
 <section>
-  <div class="card">
-    <div class="card-container blue-container">
-      <div class="box shadow-5 m-3">shadow-5</div>
-    </div>
+  <div class="title mt-5 mb-4">
+    <h2>Available Courses,</h2>
+  </div>
+  <div class="container">
+    <mat-card class="example-card" *ngFor="let course of courses; index as i">
+      <mat-card-title>{{ course?.courseName }}</mat-card-title>
+      <mat-divider inset></mat-divider>
+      <mat-card-actions>
+        <h3>* {{ course?.description }}</h3>
+      </mat-card-actions>
+      <mat-card-footer> </mat-card-footer>
+    </mat-card>
   </div>
 </section>
