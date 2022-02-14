@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { HomeService } from '../home/home.service';
 
 @Component({
   selector: 'app-admin-login-dialog',
@@ -7,7 +8,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./admin-login-dialog.component.scss'],
 })
 export class AdminLoginDialogComponent implements OnInit {
-  constructor() {}
+  constructor(private homeService: HomeService) {}
 
   ngOnInit(): void {}
 
@@ -16,6 +17,13 @@ export class AdminLoginDialogComponent implements OnInit {
       return;
     }
 
-    console.log(form.value);
+    const data = {
+      email: form.value.email,
+      password: form.value.password,
+    };
+
+    this.homeService.adminLogin(data).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

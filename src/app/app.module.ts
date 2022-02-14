@@ -12,6 +12,8 @@ import { RecentlyUpdatedComponent } from './home/recently-updated/recently-updat
 import { CoursesComponent } from './home/courses/courses.component';
 import { AdminLoginDialogComponent } from './admin-login-dialog/admin-login-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { HomeService } from './home/home.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,8 +31,9 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     PrimengModule,
     FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
