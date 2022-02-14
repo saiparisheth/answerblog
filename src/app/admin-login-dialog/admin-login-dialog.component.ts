@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { HomeService } from '../home/home.service';
 
 @Component({
@@ -8,7 +11,12 @@ import { HomeService } from '../home/home.service';
   styleUrls: ['./admin-login-dialog.component.scss'],
 })
 export class AdminLoginDialogComponent implements OnInit {
-  constructor(private homeService: HomeService) {}
+  constructor(
+    private homeService: HomeService,
+    private router: Router,
+    private messageService: MessageService,
+    private dialogRef: MatDialogRef<AdminLoginDialogComponent>
+  ) {}
 
   ngOnInit(): void {}
 
@@ -23,7 +31,16 @@ export class AdminLoginDialogComponent implements OnInit {
     };
 
     this.homeService.adminLogin(data).subscribe((res) => {
-      console.log(res);
+      if (res?.id !== null) {
+        this.router.navigate([`admin/${res?.id}`]);
+        this.dialogRef.close();
+      } else {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: res?.message,
+        });
+      }
     });
   }
 }

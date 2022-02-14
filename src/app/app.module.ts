@@ -14,6 +14,8 @@ import { AdminLoginDialogComponent } from './admin-login-dialog/admin-login-dial
 import { FormsModule } from '@angular/forms';
 import { HomeService } from './home/home.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     RecentlyUpdatedComponent,
     CoursesComponent,
-    AdminLoginDialogComponent
+    AdminLoginDialogComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [HomeService],
+  providers: [HomeService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

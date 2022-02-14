@@ -11,6 +11,10 @@ export class HomeService {
   constructor(private http: HttpClient) {}
 
   adminLogin(data: { email: string; password: string }) {
-    return this.http.post(`${this.BACKEND_URL}admin/login`, data);
+    // return value: id: string, message: string
+    return this.http.post<{ id: string; message: string }>(
+      `${this.BACKEND_URL}admin/login`,
+      data
+    );
   }
 }
