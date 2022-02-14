@@ -10,6 +10,8 @@ import { MaterialModule } from './material.module';
 import { PrimengModule } from './primeng.module';
 import { RecentlyUpdatedComponent } from './home/recently-updated/recently-updated.component';
 import { CoursesComponent } from './home/courses/courses.component';
+import { AdminLoginDialogComponent } from './admin-login-dialog/admin-login-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { CoursesComponent } from './home/courses/courses.component';
     HomeComponent,
     HeaderComponent,
     RecentlyUpdatedComponent,
-    CoursesComponent
+    CoursesComponent,
+    AdminLoginDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import { CoursesComponent } from './home/courses/courses.component';
     BrowserAnimationsModule,
     MaterialModule,
     PrimengModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
