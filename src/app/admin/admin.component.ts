@@ -9,6 +9,9 @@ import { AdminService } from './admin.service';
 })
 export class AdminComponent implements OnInit {
   id: string;
+  s;
+  adminName: string;
+  adminMail: string;
   constructor(
     private route: ActivatedRoute,
     private adminService: AdminService
@@ -19,7 +22,10 @@ export class AdminComponent implements OnInit {
       if (params) {
         this.id = params['id'];
         this.adminService.getAdminDataById(this.id).subscribe((res) => {
-          console.log(res);
+          if (res.admin) {
+            this.adminName = res.admin?.name;
+            this.adminMail = res.admin?.email;
+          }
         });
       }
     });
