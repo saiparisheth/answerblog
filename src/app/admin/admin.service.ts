@@ -23,7 +23,7 @@ export class AdminService {
   }
 
   getCourseDetailsById(id: string) {
-    return this.http.get<{ courses: any; message: string }>(
+    return this.http.get<{ course: any; message: string }>(
       `${this.BACKEND_URL}course/${id}`
     );
   }
