@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from './admin.service';
+import { EditDetailComponent } from './edit-detail/edit-detail.component';
 
 @Component({
   selector: 'app-admin',
@@ -9,12 +11,12 @@ import { AdminService } from './admin.service';
 })
 export class AdminComponent implements OnInit {
   id: string;
-  adminName: string;
-  adminMail: string;
-  courses: any[];
+  adminDetail: any;
+  courses: any[] = [];
   constructor(
     private route: ActivatedRoute,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -23,12 +25,10 @@ export class AdminComponent implements OnInit {
         this.id = params['id'];
         this.adminService.getAdminDataById(this.id).subscribe((res) => {
           if (res.admin) {
-            this.adminName = res.admin?.name;
-            this.adminMail = res.admin?.email;
+            this.adminDetail = res.admin;
           }
         });
         this.adminService.getAdminAddedCoursesById(this.id).subscribe((res) => {
-          console.log(res);
           if (res.courses) {
             this.courses = res.courses;
           }
@@ -40,6 +40,14 @@ export class AdminComponent implements OnInit {
   onCourseClicked(id: string) {
     this.adminService.getCourseDetailsById(id).subscribe((res) => {
       console.log(res);
+    });
+  }
+
+  editDetail() {
+    this.dialog.open(EditDetailComponent, {
+      data: {
+        adminDetail: this.adminDetail,
+      },
     });
   }
 }

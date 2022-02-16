@@ -16,6 +16,9 @@ import { HomeService } from './home/home.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 import { MessageService } from 'primeng/api';
+import { EditDetailComponent } from './admin/edit-detail/edit-detail.component';
+import { AddAdminComponent } from './admin/add-admin/add-admin.component';
+import { AddCourseComponent } from './admin/add-course/add-course.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { MessageService } from 'primeng/api';
     RecentlyUpdatedComponent,
     CoursesComponent,
     AdminLoginDialogComponent,
-    AdminComponent
+    AdminComponent,
+    EditDetailComponent,
+    AddAdminComponent,
+    AddCourseComponent
   ],
   imports: [
     BrowserModule,

@@ -3,8 +3,8 @@
   <div class="flex admin-detail">
     <img src="assets/streamline-icon-user-secure@400x400.png" alt="" />
     <div class="detail mt-5">
-      <h2 class="mt-5">{{ adminName }}</h2>
-      <h4>( {{ adminMail }} )</h4>
+      <h2 class="mt-5">{{ adminDetail?.name }}</h2>
+      <h4>( {{ adminDetail?.email }} )</h4>
     </div>
   </div>
   <div class="flex justify-content-around">
@@ -14,31 +14,20 @@
         <li *ngFor="let course of courses">
           <a (click)="onCourseClicked(course._id)">
             <div class="course">
-              <h2>{{ course.name }}</h2>
-              <h3>{{ course.description }}</h3>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a>
-            <div class="course">
-              <h2>{{ "course-name" }}</h2>
-              <h3>{{ "course-description" }}</h3>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a>
-            <div class="course">
-              <h2>{{ "course-name" }}</h2>
-              <h3>{{ "course-description" }}</h3>
+              <h2>{{ course?.name }}</h2>
+              <h3>{{ course?.description }}</h3>
             </div>
           </a>
         </li>
       </ul>
     </div>
     <div class="mt-5 buttons flex flex-column">
-      <button class="mt-3" mat-flat-button color="primary">
+      <button
+        class="mt-3"
+        mat-flat-button
+        color="primary"
+        (click)="editDetail()"
+      >
         <mat-icon style="margin-top: -5px">edit</mat-icon> Edit My Detail
       </button>
       <button class="mt-3" mat-flat-button color="accent">
