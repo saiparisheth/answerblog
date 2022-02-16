@@ -1,1 +1,49 @@
-<p>add-course works!</p>
+<p-toast></p-toast>
+<section>
+  <div class="close-button" mat-dialog-actions>
+    <button mat-icon-button color="warn" mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <h2 class="font-semibold">Add a new course here,</h2>
+  <form [formGroup]="form">
+    <div class="p-inputgroup mb-3">
+      <span class="p-inputgroup-addon"><i class="pi pi-file"></i></span>
+      <input
+        type="text"
+        formControlName="name"
+        pInputText
+        placeholder="Course Name"
+      />
+    </div>
+    <div class="p-inputgroup mb-3">
+      <span class="p-inputgroup-addon"><i class="pi pi-box"></i></span>
+      <input
+        type="text"
+        formControlName="description"
+        pInputText
+        placeholder="Course Description"
+      />
+    </div>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Add"
+      class="p-button-success mr-2"
+      [disabled]="form.invalid"
+      (click)="onSubmit()"
+      *ngIf="!isLoading"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Clear"
+      class="p-button-danger"
+      (click)="form.reset()"
+      *ngIf="!isLoading"
+    ></button>
+    <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
+  </form>
+</section>

@@ -41,4 +41,11 @@ export class AdminService {
       form
     );
   }
+
+  addNewCourse(form: any) {
+    return this.http.post<{ course: any; message: string }>(
+      `${this.BACKEND_URL}/course`,
+      form
+    );
+  }
 }
