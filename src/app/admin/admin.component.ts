@@ -9,9 +9,9 @@ import { AdminService } from './admin.service';
 })
 export class AdminComponent implements OnInit {
   id: string;
-  s;
   adminName: string;
   adminMail: string;
+  courses: any[];
   constructor(
     private route: ActivatedRoute,
     private adminService: AdminService
@@ -27,7 +27,19 @@ export class AdminComponent implements OnInit {
             this.adminMail = res.admin?.email;
           }
         });
+        this.adminService.getAdminAddedCoursesById(this.id).subscribe((res) => {
+          console.log(res);
+          if (res.courses) {
+            this.courses = res.courses;
+          }
+        });
       }
+    });
+  }
+
+  onCourseClicked(id: string) {
+    this.adminService.getCourseDetailsById(id).subscribe((res) => {
+      console.log(res);
     });
   }
 }

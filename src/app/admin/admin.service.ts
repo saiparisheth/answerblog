@@ -15,4 +15,16 @@ export class AdminService {
       `${this.BACKEND_URL}/admin/${id}`
     );
   }
+
+  getAdminAddedCoursesById(id: string) {
+    return this.http.get<{ courses: any[]; message: string }>(
+      `${this.BACKEND_URL}admin/courses/${id}`
+    );
+  }
+
+  getCourseDetailsById(id: string) {
+    return this.http.get<{ courses: any; message: string }>(
+      `${this.BACKEND_URL}course/${id}`
+    );
+  }
 }
