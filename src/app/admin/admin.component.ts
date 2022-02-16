@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { AdminService } from './admin.service';
@@ -19,7 +19,8 @@ export class AdminComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private adminService: AdminService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,9 +42,7 @@ export class AdminComponent implements OnInit {
   }
 
   onCourseClicked(id: string) {
-    this.adminService.getCourseDetailsById(id).subscribe((res) => {
-      console.log(res);
-    });
+    this.router.navigate([`c/${id}`]);
   }
 
   editDetail() {
@@ -67,8 +66,8 @@ export class AdminComponent implements OnInit {
 
   addNewCourse() {
     this.dialog.open(AddCourseComponent, {
-      data: { 
-        id: this.adminDetail._id
+      data: {
+        id: this.adminDetail._id,
       },
       disableClose: true,
       hasBackdrop: true,

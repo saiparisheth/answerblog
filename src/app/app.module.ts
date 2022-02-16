@@ -19,6 +19,7 @@ import { MessageService } from 'primeng/api';
 import { EditDetailComponent } from './admin/edit-detail/edit-detail.component';
 import { AddAdminComponent } from './admin/add-admin/add-admin.component';
 import { AddCourseComponent } from './admin/add-course/add-course.component';
+import { CourseDetailComponent } from './admin/course-detail/course-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AddCourseComponent } from './admin/add-course/add-course.component';
     AdminComponent,
     EditDetailComponent,
     AddAdminComponent,
-    AddCourseComponent
+    AddCourseComponent,
+    CourseDetailComponent
   ],
   imports: [
     BrowserModule,
