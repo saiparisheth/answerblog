@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { AddAdminComponent } from './add-admin/add-admin.component';
 import { AdminService } from './admin.service';
 import { EditDetailComponent } from './edit-detail/edit-detail.component';
 
@@ -48,6 +49,17 @@ export class AdminComponent implements OnInit {
       data: {
         adminDetail: this.adminDetail,
       },
+      disableClose: true,
+      hasBackdrop: true,
+      width: '350px',
+    });
+  }
+
+  addAdmin() {
+    this.dialog.open(AddAdminComponent, {
+      disableClose: true,
+      hasBackdrop: true,
+      width: '350px',
     });
   }
 }

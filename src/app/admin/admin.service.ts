@@ -27,4 +27,11 @@ export class AdminService {
       `${this.BACKEND_URL}course/${id}`
     );
   }
+
+  addNewAdmin(form: any) {
+    return this.http.post<{ admin: any; message: string }>(
+      `${this.BACKEND_URL}/admin/new`,
+      form
+    );
+  }
 }

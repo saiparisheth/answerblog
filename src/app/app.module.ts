@@ -11,7 +11,7 @@ import { PrimengModule } from './primeng.module';
 import { RecentlyUpdatedComponent } from './home/recently-updated/recently-updated.component';
 import { CoursesComponent } from './home/courses/courses.component';
 import { AdminLoginDialogComponent } from './admin-login-dialog/admin-login-dialog.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeService } from './home/home.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
@@ -40,6 +40,7 @@ import { AddCourseComponent } from './admin/add-course/add-course.component';
     MaterialModule,
     PrimengModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
   ],
   providers: [HomeService, MessageService],
