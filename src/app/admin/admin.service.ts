@@ -34,4 +34,11 @@ export class AdminService {
       form
     );
   }
+
+  updateAdminDetail(form: any, id: string) {
+    return this.http.put<{ admin: any; message: string }>(
+      `${this.BACKEND_URL}/admin/${id}`,
+      form
+    );
+  }
 }
