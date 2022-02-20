@@ -28,6 +28,12 @@ export class AdminService {
     );
   }
 
+  getWeeksDetailsByCourseId(id: string) {
+    return this.http.get<{ weeks: any; message: string }>(
+      `${this.BACKEND_URL}/weeks/${id}`
+    );
+  }
+
   addNewAdmin(form: any) {
     return this.http.post<{ admin: any; message: string }>(
       `${this.BACKEND_URL}/admin/new`,

@@ -10,6 +10,7 @@ import { AdminService } from '../admin.service';
 export class CourseDetailComponent implements OnInit {
   id: string;
   course: any;
+  availableWeeks: any[];
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +26,21 @@ export class CourseDetailComponent implements OnInit {
             this.course = res.course;
           }
         });
+        this.adminService
+          .getWeeksDetailsByCourseId(this.id)
+          .subscribe((res) => {
+            if (res.weeks != null) {
+              this.availableWeeks = res.weeks;
+            }
+          });
       }
     });
+    this.availableWeeks = [
+      { name: 'week1' },
+      { name: 'week3' },
+      { name: 'week2' },
+      { name: 'week4' },
+      { name: 'week5' },
+    ];
   }
 }

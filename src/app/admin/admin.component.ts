@@ -65,13 +65,21 @@ export class AdminComponent implements OnInit {
   }
 
   addNewCourse() {
-    this.dialog.open(AddCourseComponent, {
+    let dialogRef = this.dialog.open(AddCourseComponent, {
       data: {
-        id: this.adminDetail._id,
+        id: this.adminDetail?._id,
       },
       disableClose: true,
       hasBackdrop: true,
       width: '350px',
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      this.adminService.getAdminAddedCoursesById(this.id).subscribe((res) => {
+        if (res.courses) {
+          this.courses = res.courses;
+        }
+      });
     });
   }
 }
