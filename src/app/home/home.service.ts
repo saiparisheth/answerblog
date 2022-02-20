@@ -17,4 +17,10 @@ export class HomeService {
       data
     );
   }
+
+  getAllCourses() {
+    return this.http.get<{ courses: any[]; message: string }>(
+      `${this.BACKEND_URL}/course`
+    );
+  }
 }

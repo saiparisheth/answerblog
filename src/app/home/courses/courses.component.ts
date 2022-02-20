@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../home.service';
 
 @Component({
   selector: 'app-courses',
@@ -6,14 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent implements OnInit {
-  courses = [
-    { courseName: 'Ethical Hacking', description: 'week 3 updated' },
-    { courseName: 'Ethical Hacking', description: 'week 3 updated' },
-    { courseName: 'Ethical Hacking', description: 'week 3 updated' },
-    { courseName: 'Ethical Hacking', description: 'week 3 updated' },
-    { courseName: 'Ethical Hacking', description: 'week 3 updated' },
-  ];
-  constructor() {}
+  courses = [];
+  
+  constructor(private homeService: HomeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.homeService.getAllCourses().subscribe((res) => {
+      if (res.courses.length > 0) {
+        this.courses = res.courses;
+      }
+    });
+  }
 }
