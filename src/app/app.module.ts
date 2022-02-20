@@ -21,6 +21,8 @@ import { AddAdminComponent } from './admin/add-admin/add-admin.component';
 import { AddCourseComponent } from './admin/add-course/add-course.component';
 import { CourseDetailComponent } from './admin/course-detail/course-detail.component';
 import { AddWeekComponent } from './admin/course-detail/add-week/add-week.component';
+import { SearchComponent } from './main/search/search.component';
+import { CourseViewComponent } from './main/course-view/course-view.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { AddWeekComponent } from './admin/course-detail/add-week/add-week.compon
     AddAdminComponent,
     AddCourseComponent,
     CourseDetailComponent,
-    AddWeekComponent
+    AddWeekComponent,
+    SearchComponent,
+    CourseViewComponent
   ],
   imports: [
     BrowserModule,
