@@ -38,13 +38,6 @@ export class CourseDetailComponent implements OnInit {
           });
       }
     });
-    this.availableWeeks = [
-      { name: 'week1' },
-      { name: 'week3' },
-      { name: 'week2' },
-      { name: 'week4' },
-      { name: 'week5' },
-    ];
   }
 
   addNewCourse() {
