@@ -1,3 +1,41 @@
 <section>
-    
+  <form>
+    <div class="input text-center">
+      <span class="p-input-icon-left mt-5">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          class="p-inputtext"
+          placeholder="Search By Course"
+          pInputText
+          (keyup)="onValueEntered($event.target.value)"
+        />
+      </span>
+    </div>
+  </form>
+  <div class="container">
+    <mat-card class="example-card" *ngFor="let course of coursesAvailable">
+      <mat-card-title>{{ course?.courseName }}</mat-card-title>
+      <mat-divider inset></mat-divider>
+      <mat-card-actions>
+        <h3>* {{ course?.description }}</h3>
+      </mat-card-actions>
+      <mat-card-footer> </mat-card-footer>
+    </mat-card>
+  </div>
+  <div
+    class="error text-center"
+    *ngIf="coursesAvailable.length <= 0 && courses.length <= 0"
+  >
+    <h2 class="font-semibold text-pink-700">No Course available</h2>
+  </div>
+
+  <div
+    class="error text-center"
+    *ngIf="coursesAvailable.length <= 0 && courses.length > 0"
+  >
+    <h2 class="font-semibold text-pink-700">
+      No Course found with the name '{{ enteredValues }}'
+    </h2>
+  </div>
 </section>

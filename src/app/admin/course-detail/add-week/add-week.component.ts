@@ -41,7 +41,7 @@ export class AddWeekComponent implements OnInit {
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
-          detail: 'Updated Successfully!',
+          detail: 'Course Added Successfully!',
         });
         window.setTimeout(() => {
           this.dialogRef.close();
