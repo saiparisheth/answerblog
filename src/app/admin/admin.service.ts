@@ -50,7 +50,7 @@ export class AdminService {
 
   addNewWeek(form: any) {
     return this.http.post<{ week: any; message: string }>(
-      `${this.BACKEND_URL}/week/new`,
+      `${this.BACKEND_URL}week/new`,
       form
     );
   }
