@@ -20,7 +20,7 @@ export class HomeService {
 
   getAllCourses() {
     return this.http.get<{ courses: any[]; message: string }>(
-      `${this.BACKEND_URL}/course`
+      `${this.BACKEND_URL}course`
     );
   }
 }

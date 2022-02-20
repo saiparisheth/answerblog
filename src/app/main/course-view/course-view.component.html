@@ -1,1 +1,26 @@
-<p>course-view works!</p>
+<section>
+  <main class="mt-5">
+    <div
+      class="flex flex-column md:flex-row justify-content-evenly text-center"
+    >
+      <img
+        src="../../../assets/streamline-icon-education-online-learning@400x400.png"
+        alt="education-online-learning"
+      />
+      <div class="detail mt-2 md:mt-5">
+        <h1 class="mt-5 font-semibold mb-0">{{ course?.name | uppercase }},</h1>
+        <h2>( {{ course?.teachBy | titlecase }} )</h2>
+      </div>
+    </div>
+    <div class="flex justify-content-between">
+      <div class="weeks mt-5">
+        <h2 class="font-semibold">Choose by Week,</h2>
+        <div class="grid mt-5">
+          <div class="col-3 mb-3" *ngFor="let week of availableWeeks">
+            <a>{{ week?.name | titlecase }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>

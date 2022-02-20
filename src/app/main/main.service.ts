@@ -15,4 +15,16 @@ export class MainService {
       `${this.BACKEND_URL}/course`
     );
   }
+
+  getCourseDetailsById(id: string) {
+    return this.http.get<{ course: any; message }>(
+      `${this.BACKEND_URL}course/${id}`
+    );
+  }
+
+  getWeeksDetailsByCourseId(id: string) {
+    return this.http.get<{ weeks: any; message: string }>(
+      `${this.BACKEND_URL}weeks/${id}`
+    );
+  }F
 }
