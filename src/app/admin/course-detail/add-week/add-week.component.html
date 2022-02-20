@@ -1,0 +1,53 @@
+<p-toast></p-toast>
+<section>
+  <div class="close-button" mat-dialog-actions>
+    <button mat-icon-button color="warn" mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <h2 class="font-semibold">Add a new week here,</h2>
+  <form [formGroup]="form">
+    <div class="p-inputgroup mb-3">
+      <span class="p-inputgroup-addon"><i class="pi pi-hashtag"></i></span>
+      <input
+        type="text"
+        formControlName="name"
+        pInputText
+        placeholder="Week Name. Eg: Week2"
+      />
+    </div>
+    <p-editor formControlName="description" [style]="{ height: '320px' }">
+      <ng-template pTemplate="header">
+        <span class="ql-formats">
+          <button type="button" class="ql-bold" aria-label="Bold"></button>
+          <button type="button" class="ql-italic" aria-label="Italic"></button>
+          <button
+            type="button"
+            class="ql-underline"
+            aria-label="Underline"
+          ></button>
+        </span>
+      </ng-template>
+    </p-editor>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Add"
+      class="p-button-success mr-2"
+      [disabled]="form.invalid"
+      (click)="onSubmit()"
+      *ngIf="!isLoading"
+    ></button>
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Clear"
+      class="p-button-danger"
+      (click)="form.reset()"
+      *ngIf="!isLoading"
+    ></button>
+    <p-progressSpinner *ngIf="isLoading"></p-progressSpinner>
+  </form>
+</section>

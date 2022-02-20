@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from '../admin.service';
+import { AddWeekComponent } from './add-week/add-week.component';
 
 @Component({
   selector: 'app-course-detail',
@@ -14,7 +16,8 @@ export class CourseDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -42,5 +45,14 @@ export class CourseDetailComponent implements OnInit {
       { name: 'week4' },
       { name: 'week5' },
     ];
+  }
+
+  addNewCourse() {
+    this.dialog.open(AddWeekComponent, {
+      data: { courseId: this.id },
+      disableClose: true,
+      hasBackdrop: true,
+      width: '650px',
+    });
   }
 }

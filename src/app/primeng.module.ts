@@ -4,6 +4,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TooltipModule } from 'primeng/tooltip';
+import { EditorModule } from 'primeng/editor';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { TooltipModule } from 'primeng/tooltip';
     ToastModule,
     ProgressSpinnerModule,
     TooltipModule,
+    EditorModule,
   ],
   exports: [
     ButtonModule,
@@ -19,6 +21,7 @@ import { TooltipModule } from 'primeng/tooltip';
     ToastModule,
     ProgressSpinnerModule,
     TooltipModule,
+    EditorModule,
   ],
 })
 export class PrimengModule {}

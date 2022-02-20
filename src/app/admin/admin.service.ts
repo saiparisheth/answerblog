@@ -41,16 +41,23 @@ export class AdminService {
     );
   }
 
-  updateAdminDetail(form: any, id: string) {
-    return this.http.put<{ admin: any; message: string }>(
-      `${this.BACKEND_URL}/admin/${id}`,
+  addNewCourse(form: any) {
+    return this.http.post<{ course: any; message: string }>(
+      `${this.BACKEND_URL}/course`,
       form
     );
   }
 
-  addNewCourse(form: any) {
-    return this.http.post<{ course: any; message: string }>(
-      `${this.BACKEND_URL}/course`,
+  addNewWeek(form: any) {
+    return this.http.post<{ week: any; message: string }>(
+      `${this.BACKEND_URL}/week/new`,
+      form
+    );
+  }
+
+  updateAdminDetail(form: any, id: string) {
+    return this.http.put<{ admin: any; message: string }>(
+      `${this.BACKEND_URL}/admin/${id}`,
       form
     );
   }
