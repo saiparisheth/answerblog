@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="input-search mt-5 text-center">
-    <form>
+    <form #form="ngForm" (ngSubmit)="onValueEntered(form)">
       <div class="input">
         <span class="p-input-icon-left mt-5">
           <i class="pi pi-search"></i>
@@ -21,10 +21,21 @@
             class="p-inputtext-lg"
             placeholder="Search By Course"
             pInputText
+            ngModel
+            name="value"
+            required
           />
         </span>
       </div>
-      <button mat-raised-button class="mt-3" color="primary">Search</button>
+      <button
+        mat-raised-button
+        class="mt-3"
+        type="submit"
+        color="primary"
+        [disabled]="form.invalid"
+      >
+        Search
+      </button>
     </form>
   </div>
   <div class="recently-updated">

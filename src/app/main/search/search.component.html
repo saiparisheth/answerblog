@@ -7,6 +7,8 @@
           type="text"
           class="p-inputtext"
           placeholder="Search By Course"
+          [(ngModel)]="enteredValues"
+          name="value"
           pInputText
           (keyup)="onValueEntered($event.target.value)"
         />

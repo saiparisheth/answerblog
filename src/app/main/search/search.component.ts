@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MainService } from '../main.service';
 
 @Component({
@@ -11,10 +12,19 @@ export class SearchComponent implements OnInit {
   courses = [];
   enteredValues: string;
 
-  constructor(private mainService: MainService) {}
+  constructor(
+    private mainService: MainService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this._getCourses();
+    this.route.params.subscribe((params) => {
+      if (params) {
+        this.enteredValues = params['value'];
+        this.onValueEntered(params['value']);
+      }
+    });
   }
 
   onValueEntered(value: string) {

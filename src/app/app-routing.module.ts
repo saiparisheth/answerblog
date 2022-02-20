@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'admin', children: [{ path: ':id', component: AdminComponent }] },
   { path: 'c', children: [{ path: ':id', component: CourseDetailComponent }] },
-  {path: 'search',  component: SearchComponent}
+  { path: 'search/:value', component: SearchComponent },
 ];
 
 @NgModule({
