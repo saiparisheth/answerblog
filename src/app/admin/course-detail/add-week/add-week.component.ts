@@ -61,7 +61,7 @@ export class AddWeekComponent implements OnInit {
   private _initForm() {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
-      detail: ['', [Validators.required]],
+      description: ['', [Validators.required]],
     });
   }
 }
