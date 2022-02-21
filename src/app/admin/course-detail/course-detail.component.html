@@ -1,14 +1,13 @@
 <section>
   <h1 class="mt-5 text-center font-bold mb-5">ADMIN SECTION</h1>
   <main class="mt-5">
-    <h1 class="mt-5 font-semibold mb-0">{{ course?.name | uppercase }},</h1>
-    <h2>( {{ course?.teachBy | titlecase }} )</h2>
+    <h1 class="mt-5 font-semibold mb-0">{{ course?.courseName | uppercase }},</h1>
     <div class="flex justify-content-between">
       <div class="weeks mt-5 w-8">
         <h2 class="font-semibold">Available Weeks,</h2>
         <div class="grid mt-5">
           <div class="col-3 mb-3" *ngFor="let week of availableWeeks">
-            <a>{{ week?.name | titlecase }}</a>
+            <a (click)="onweekClicked(week.description  )">{{ week?.name | titlecase }}</a>
           </div>
         </div>
       </div>
@@ -23,6 +22,9 @@
           (click)="addNewCourse()"
         ></button>
       </div>
+    </div>
+    <div>
+      <a>{{week1 | titlecase}}</a>
     </div>
   </main>
 </section>

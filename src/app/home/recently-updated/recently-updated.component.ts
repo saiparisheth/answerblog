@@ -15,6 +15,7 @@ export class RecentlyUpdatedComponent implements OnInit {
     this.homeService.getAllCourses().subscribe((res) => {
       if (res.courses.length > 0) {
         this.courses = res.courses;
+        console.log(res.courses)
       }
     });
   }
