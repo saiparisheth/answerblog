@@ -10,6 +10,7 @@ import { MainService } from '../main.service';
 export class CourseViewComponent implements OnInit {
   course: any;
   availableWeeks: any;
+  week1: string;
 
   constructor(
     private mainService: MainService,
@@ -33,5 +34,8 @@ export class CourseViewComponent implements OnInit {
           });
       }
     });
+  }
+  onweekClicked(des: string){
+    this.week1=des;
   }
 }
