@@ -21,7 +21,7 @@ export class CoursesComponent implements OnInit {
     });
   }
   onc2Clicked(id: string) {
-    this.router.navigate([`c/${id}`]);
+    this.router.navigate([`c/u/${id}`]);
 
   }
 }

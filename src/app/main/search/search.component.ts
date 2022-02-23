@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MainService } from '../main.service';
 
 @Component({
@@ -14,7 +14,8 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private mainService: MainService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +42,10 @@ export class SearchComponent implements OnInit {
         this.coursesAvailable.push(course);
       }
     });
+  }
+
+  onRouteToCourse(id:string) {
+    this.router.navigate([`c/u/${id}`])
   }
 
   private _getCourses() {
