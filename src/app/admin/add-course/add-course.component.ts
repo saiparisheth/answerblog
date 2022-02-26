@@ -32,7 +32,7 @@ export class AddCourseComponent implements OnInit {
     }
 
     const form = {
-      name: this.form.get('name').value,
+      corseName: this.form.get('name').value,
       description: this.form.get('description').value,
       adminId: this.data.id,
     };

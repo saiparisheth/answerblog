@@ -14,7 +14,7 @@
         <li *ngFor="let course of courses">
           <a (click)="onCourseClicked(course._id)">
             <div class="course">
-              <h2>{{ course?.name }}</h2>
+              <h2>{{ course?.courseName }}</h2>
               <h3>{{ course?.description }}</h3>
             </div>
           </a>
